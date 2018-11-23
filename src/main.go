@@ -1,6 +1,7 @@
 package main
 
 import (
+	"demogo/src/inter"
 	"demogo/src/model"
 	"demogo/src/router"
 	"demogo/src/service"
@@ -63,4 +64,14 @@ func main() {
 	if err := rootCmd.Execute(); err != nil {
 		os.Exit(-1)
 	}
+
+	// test interface
+	//testInterface()
+}
+
+func testInterface() {
+	inter.TestStruct1()
+	inter.TestStruct2()
+	inter.TestFunc1()
+	inter.TestFunc2()
 }

@@ -6,19 +6,19 @@ import (
 	"os"
 )
 
-type readFromFile struct {}
+type readFromFile struct{}
 
-type readFromStdin struct {}
+type readFromStdin struct{}
 
-type writeToFile struct {}
+type writeToFile struct{}
 
-type writeToStdout struct {}
+type writeToStdout struct{}
 
 var (
-	ReadFromFile readFromFile
+	ReadFromFile  readFromFile
 	ReadFromStdin readFromStdin
 	WriteToStdout writeToStdout
-	WriteToFile writeToFile
+	WriteToFile   writeToFile
 	DefaultReader Reader
 	DefaultWriter Writer
 )
@@ -31,10 +31,9 @@ type Writer interface {
 	Write()
 }
 
-
 func (r *readFromFile) Read() {
 	file, e := os.Open("D://test.txt")
-	if e != nil{
+	if e != nil {
 		fmt.Println("open file fail : ", e)
 		return
 	}
@@ -56,7 +55,7 @@ func (r *readFromFile) Read() {
 	}
 }
 
-func (r *readFromStdin) Read(){
+func (r *readFromStdin) Read() {
 	reader := bufio.NewReader(os.Stdin)
 	readString, e := reader.ReadString('\n')
 	if e != nil {
@@ -67,13 +66,13 @@ func (r *readFromStdin) Read(){
 	fmt.Println("read context : ", readString)
 }
 
-func (w *writeToStdout) Write(){
+func (w *writeToStdout) Write() {
 
 	fmt.Fprintln(os.Stdout, "this is a test of write rizi to stdout")
 
 }
 
-func (w *writeToFile) Write(){
+func (w *writeToFile) Write() {
 	file, err := os.OpenFile("D://test.txt", os.O_CREATE|os.O_WRONLY, 664)
 	if err != nil {
 		fmt.Println("write to file fail : ", err)
