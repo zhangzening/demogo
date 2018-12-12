@@ -26,6 +26,12 @@ func Init() {
 	db.DB().SetMaxOpenConns(100)
 	db.LogMode(bootstrap.Debug())
 
+	//table_options := []string{"CHARACTER SET = utf8", "COLLATE = utf8_general_ci"}
+	//db.Set("gorm:table_options", table_options)
+
+	//db.Set("gorm:table_options", "CHARACTER SET = utf8")
+	//db.Set("gorm:table_options", "COLLATE = utf8_general_ci")
+
 	fmt.Println("[db] init success")
 	fmt.Println("table migrate init start ...")
 	migrate()

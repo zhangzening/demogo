@@ -65,8 +65,6 @@ func main() {
 		os.Exit(-1)
 	}
 
-	// test interface
-	//testInterface()
 }
 
 func testInterface() {
